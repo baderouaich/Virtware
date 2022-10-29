@@ -5,8 +5,9 @@ project(virtware)
 find_package(xtd REQUIRED)
 add_projects(
   virtware
+  gui
 )
 
 # Install
 install_package()
-add_projects(virtware_script)
+
