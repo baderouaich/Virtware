@@ -1,1 +1,0 @@
-C:/Program Files (x86)/xtd/share/xtd/resources\texts\doxygen.txt
