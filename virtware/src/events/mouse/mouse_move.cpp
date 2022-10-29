@@ -38,7 +38,7 @@ std::string MouseMoveEvent::to_string() const
 	oss << "mouse move " << this->x << ' ' << this->y;
 	return oss.str();
 }
-#include <iostream>
+
 void MouseMoveEvent::from_string(const std::string& str)
 {
 	// Scan expected format to be parsed from string and assign x and y with its correspondent values
