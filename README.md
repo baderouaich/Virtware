@@ -12,11 +12,13 @@ The goal is to be able to automate human routines, especially repetitive constan
 
 - That fun shooting game you play that going afk can get you kicked or lost, what if you are able to record some routine of actions that you play when you are about to be afk, which will make you less dormant in the game..
 
+- 
+
 > ... and many more scenarios ... 
 
 ## Target Featues
 - [ ] Record and play routines (aka VHR for Virtual Hardware Routine).
-- [ ] Scripting language to directly perform hardware events in a simple and straightforward manner (example: `mouse click 20 20; key press A;...`).
+- [ ] Scripting language to directly perform hardware events in a simple and straightforward manner (example: `mouse move 20 20; key press A; mouse click left; ...`).
 - [ ] Schedule routines to be played at a specific date and time.
 - [ ] Create key shortcuts to launch specific saved routines.
 - [ ] Use ML (like OpenCV) to make routines cognitive. 
