@@ -6,7 +6,11 @@ namespace virtware
 {
     class Key final
     {
-    public:
+    public: // Input
+        static bool is_key_pressed(const std::uint16_t keycode) noexcept;
+        static bool is_key_released(const std::uint16_t keycode) noexcept;
+
+    public: // Output
         static void press(const std::uint16_t keycode) noexcept;
         static void release(const std::uint16_t keycode) noexcept;
         static void click(const std::uint16_t keycode) noexcept;
