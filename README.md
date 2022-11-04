@@ -12,8 +12,6 @@ The goal is to be able to automate human routines, especially repetitive constan
 
 - That fun shooting game you play that going afk can get you kicked or lost, what if you are able to record some routine of actions that you play when you are about to be afk, which will make you less dormant in the game..
 
-- 
-
 > ... and many more scenarios ... 
 
 ## Target Featues
