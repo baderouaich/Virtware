@@ -11,7 +11,7 @@ namespace virtware
 		T x;
 		T y;
 
-		vec2(const T& _x, const T& _y)
+		constexpr vec2(const T& _x, const T& _y) noexcept
 			: x(_x), y(_y)
 		{
 
