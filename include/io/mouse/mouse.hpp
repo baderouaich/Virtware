@@ -5,7 +5,7 @@
 
 namespace virtware
 {
-	class Mouse
+	class Mouse final
 	{ 
 	public:
 		static vec2i get_position() noexcept;

@@ -1,7 +1,6 @@
 #include "pch.hpp"
 #include "io/mouse/mouse.hpp"
 
-
 using namespace virtware;
 
 vec2i Mouse::get_position() noexcept
@@ -10,7 +9,6 @@ vec2i Mouse::get_position() noexcept
     ::GetCursorPos(&point);
     return vec2i(point.x, point.y);
 }
-
 
 void Mouse::set_position(const vec2i& pos) noexcept
 {
@@ -25,5 +23,5 @@ void Mouse::set_position(const vec2i& pos) noexcept
     input.mi.dx = static_cast<decltype(input.mi.dx)>(fx);
     input.mi.dy = static_cast<decltype(input.mi.dy)>(fy);
     input.mi.dwFlags = MOUSEEVENTF_ABSOLUTE | MOUSEEVENTF_MOVE;
-    ::SendInput(1, &input, sizeof(INPUT));
+    ::SendInput(1, &input, sizeof(::INPUT));
 }
