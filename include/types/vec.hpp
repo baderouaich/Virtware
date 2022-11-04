@@ -4,9 +4,8 @@
 
 namespace virtware
 {
-
 	template <typename T> 
-	requires std::is_integral_v<T> or std::is_floating_point_v<T>
+	requires std::is_integral_v<T> or std::is_floating_point_v<T> // equiv to std::is_arithmetic_v<T>
 	struct vec2 
 	{
 		T x;
