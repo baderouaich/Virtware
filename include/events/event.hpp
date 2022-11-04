@@ -7,16 +7,16 @@ namespace virtware
     class  Event
     {
     public:
-        enum class EventType
+        enum class EventType : std::uint8_t
         {
             Key,        // Keyboard interactions
             Mouse,      // Mouse interactions
-            Joystick,   // aka Gamepad interactions
-            Time,       // The do nothing event (HALT), represents the gape between events, or duration to wait before launching an event..
+            Joystick,   // (AKA Gamepad) interactions
+            Time,       // Wait events, represents the time that passes between two events
         };
 
     public:
-        explicit Event(const EventType type);
+         explicit Event(const EventType type);
 
     public:
         /**
