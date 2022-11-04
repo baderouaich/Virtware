@@ -10,6 +10,9 @@ set(INCLUDES
   include/events/mouse/mouse_release.hpp
   include/events/mouse/mouse_click.hpp
   include/events/mouse/mouse_scroll.hpp
+  include/events/key/key_press.hpp
+  include/events/key/key_release.hpp
+  include/events/key/key_click.hpp
   include/events/time/wait.hpp
   include/routine/routine.hpp
   include/executor/executor.hpp
@@ -27,6 +30,9 @@ set(SOURCES
   src/events/mouse/mouse_release.cpp
   src/events/mouse/mouse_click.cpp
   src/events/mouse/mouse_scroll.cpp
+  src/events/key/key_press.cpp
+  src/events/key/key_release.cpp
+  src/events/key/key_click.cpp
   src/events/time/wait.cpp
   src/routine/routine.cpp
   src/executor/executor.cpp
