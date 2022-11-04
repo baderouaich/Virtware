@@ -3,6 +3,7 @@
 #include "io/key/key.hpp"
 #include "events/mouse/mouse_move.hpp"
 #include "events/time/wait.hpp"
+#include "events/key/key_press.hpp"
 #include "pch.hpp"
 #include "io/mouse/mouse.hpp"
 #include <xtd/diagnostics/debug.h>
@@ -43,17 +44,23 @@ void Recorder::record_loop()
     m_is_recording = true;
     while(m_is_recording)
     {
-        static std::chrono::system_clock::time_point last_event_time; // Duration between events, its also an event.
+        static std::chrono::system_clock::time_point last_event_time = std::chrono::system_clock::now(); // Duration between events, its also an event.
         std::chrono::system_clock::time_point current_event_time;
         
         // Check keyboard state 
         for(const auto& [keycode, keyname] : Key::KEYBOARD)
         {
-            const ::SHORT keystate = ::GetKeyState(keycode);
-            const bool isToggled = keystate & 0b00000000'00000001;
-            const bool isDown = keystate & 0b10000000'00000000;
-            xtd::diagnostics::debug::write_line("{}: isToggled={},  isDown={}", keyname, isToggled, isDown);
-            //std::cout << keyname << ": isToggled=" << isToggled<<", isDown="<<isDown<<std::endl;
+            if(Key::is_key_pressed(keycode))
+            {
+                m_events.push_back(std::make_shared<KeyPressEvent>(keycode));
+                xtd::diagnostics::debug::write_line("Key {} pressed", keyname);
+            }
+            else if(Key::is_key_released(keycode))
+            {
+                xtd::diagnostics::debug::write_line("Key {} released", keyname);
+                /*std::shared_ptr<Event> event = std::make_shared<KeyReleaseEvent>(keycode); 
+                xtd::diagnostics::debug::write_line("Key {} released", keyname);*/
+            }
         }
         
         // Check mouse state
