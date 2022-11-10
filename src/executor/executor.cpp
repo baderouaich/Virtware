@@ -1,9 +1,10 @@
-#include "pch.hpp"
+#include "core/core.hpp"
 #include "executor/executor.hpp"
-#include "events/mouse/mouse_click.hpp"
+#include "events/time/wait.hpp"
 #include "events/mouse/mouse_move.hpp"
 #include "events/mouse/mouse_press.hpp"
 #include "events/mouse/mouse_release.hpp"
+#include "events/mouse/mouse_click.hpp"
 #include "events/mouse/mouse_scroll.hpp"
 #include "events/key/key_press.hpp"
 #include "events/key/key_release.hpp"
@@ -11,7 +12,7 @@
 #include "io/key/key.hpp"
 #include <utility>
 #include <stdexcept>
-using namespace virtware;
+using namespace Virtware;
 
 Executor::Executor()
 {
@@ -32,7 +33,7 @@ void Executor::execute(const std::shared_ptr<Event>& event)
 		{
 			Key::press(key_press_event->get_keycode());
 		}
-		else if (KeyReleaseEvent* key_release_event = dynamic_cast<KeyReleasesEvent*>(event.get()))
+		else if (KeyReleaseEvent* key_release_event = dynamic_cast<KeyReleaseEvent*>(event.get()))
 		{
 			Key::release(key_release_event->get_keycode());
 		}
@@ -40,25 +41,60 @@ void Executor::execute(const std::shared_ptr<Event>& event)
 		{
 			Key::click(key_click_event->get_keycode());
 		}
-		break;
-	}
-	case Mouse: {
-		if(MouseMoveEvent* mouse_move_event = dynamic_cast<MouseMoveEvent*>(event.get()))
+		else
 		{
-
+			throw std::logic_error("Unhandled Key Event '" + event->to_string() + '\'');
 		}
 		break;
 	}
-	case Joystick: {
-
+	case Mouse:
+	{
+		if(MouseMoveEvent* mouse_move_event = dynamic_cast<MouseMoveEvent*>(event.get()))
+		{
+			Mouse::set_position(mouse_move_event->get_position());
+		}
+#if implemented 
+		else if (MousePressEvent* mouse_press_event = dynamic_cast<MousePressEvent*>(event.get()))
+		{
+			Mouse::press(mouse_press_event->get_button());
+		}
+		else if (MouseReleaseEvent* mouse_release_event = dynamic_cast<MouseReleaseEvent*>(event.get()))
+		{
+			Mouse::release(mouse_release_event->get_button());
+		}
+		else if (MouseClickEvent* mouse_click_event = dynamic_cast<MouseClickEvent*>(event.get()))
+		{
+			Mouse::click(mouse_click_event->get_button());
+		}
+		else if (MouseScrollEvent* mouse_scroll_event = dynamic_cast<MouseScrollEvent*>(event.get()))
+		{
+			if(mouse_scroll_event->is_up())
+				Mouse::scroll_up();
+			else 
+				Mouse::scroll_down();
+		}
+		else
+		{
+			throw std::logic_error("Unhandled Mouse Event '" + event->to_string() + '\'');
+		}
+#endif
 		break;
 	}
-	case Time: {
-
+	case Joystick:
+	{
+		throw xtd::not_implemented_exception();
+	}
+	case Time:
+	{
+		if (WaitEvent* wait_event = dynamic_cast<WaitEvent*>(event.get()))
+		{
+			// TODO: do we really want to halt the main thread? or shall the executor run in a separate thread?
+			std::this_thread::sleep_for(wait_event->get_duration());
+		}
 		break;
 	}
 	default: 
-		throw std::out_of_range("unreachable event " + event->to_string());
+		throw std::out_of_range("Unhandled Event Type '" + event->to_string() + '\'');
 		
 	}
 }
