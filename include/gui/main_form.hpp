@@ -3,9 +3,10 @@
 #pragma once
 #include <xtd/xtd.forms>
 #include <recorder/recorder.hpp>
+#include <executor/executor.hpp>
 
 /// @brief Represents the namespace that contains application objects.
-namespace virtware {
+namespace Virtware {
   /// @brief Represents the main form.
   class main_form : public xtd::forms::form {
   public:
@@ -17,6 +18,7 @@ namespace virtware {
 
   private:
       std::unique_ptr<Recorder> m_recorder;
+      std::unique_ptr<Executor> m_executor;
       std::unique_ptr<xtd::forms::button> m_start_recording_btn;
       std::unique_ptr<xtd::forms::button> m_stop_recording_btn;
       std::unique_ptr<xtd::forms::button> m_play_recording;

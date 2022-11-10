@@ -5,7 +5,7 @@
 #include <vector>
 #include <memory>
 
-namespace virtware
+namespace Virtware
 {
 	/**
 	* @brief Executes virtual hardware events

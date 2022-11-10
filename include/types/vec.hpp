@@ -2,7 +2,7 @@
 #include <concepts>
 #include <cstdint>
 
-namespace virtware
+namespace Virtware
 {
 	template <typename T> 
 	requires std::is_integral_v<T> or std::is_floating_point_v<T> // equiv to std::is_arithmetic_v<T>

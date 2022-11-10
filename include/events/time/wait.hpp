@@ -4,7 +4,7 @@
 #include <string>
 #include <sstream>
 
-namespace virtware
+namespace Virtware
 {
 	class WaitEvent : public Event
 	{
@@ -35,7 +35,10 @@ namespace virtware
 		explicit WaitEvent(const std::chrono::months& duration);
 		explicit WaitEvent(const std::chrono::years& duration);
 
+    public:
+        const std::chrono::system_clock::duration& get_duration() const noexcept;
 
+    public:
         /**
          * @brief Return current event as a string representation.
          * @example: wait 100ms

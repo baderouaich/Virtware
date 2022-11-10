@@ -1,7 +1,7 @@
-#include "pch.hpp"
+#include "core/core.hpp"
 #include "events/event.hpp"
 
-using namespace virtware;
+using namespace Virtware;
 
 Event::Event(const EventType type)
     : m_type(type)

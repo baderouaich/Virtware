@@ -1,4 +1,4 @@
-target_default_namespace("virtware")
-target_icon(resources/virtware)
-target_name("virtware")
-target_startup("virtware::main_form" src/gui/main_form.hpp)
+target_default_namespace("Virtware")
+target_icon(resources/Virtware)
+target_name("Virtware")
+target_startup("Virtware::main_form" ${CMAKE_SOURCE_DIR}/include/gui/main_form.hpp)

@@ -1,9 +1,9 @@
-#include "pch.hpp"
+#include "core/core.hpp"
 #include "events/key/key_click.hpp"
 #include "io/key/key.hpp"
 #include <ostream>
 #include <stdexcept>
-using namespace virtware;
+using namespace Virtware;
 
 KeyClickEvent::KeyClickEvent(const std::uint16_t keycode)
     : Event(EventType::Key),
@@ -23,7 +23,7 @@ std::string KeyClickEvent::to_string() const
         it != Key::KEYBOARD.end())
     {
         std::ostringstream oss{};
-        oss << "key release " << it->second;
+        oss << "key click " << it->second;
         return oss.str();
     }
     throw std::logic_error("Failed to convert KeyClickEvent to string due invalid keycode '" + std::to_string(m_keycode) + '\'');
@@ -34,7 +34,7 @@ void KeyClickEvent::from_string(const std::string& str)
     // Prepare buffer to hold key string
     std::string keyname(32, '\000');
     // Scan string format to be parsed
-    if (std::sscanf(str.c_str(), "key click %s", keyname.data()) != 1)
+    if (std::sscanf(str.c_str(), "key click %32s", keyname.data()) != 1)
         throw std::logic_error("Failed to parse KeyClickEvent from '" + str + '\'');
 
     // Validate key name

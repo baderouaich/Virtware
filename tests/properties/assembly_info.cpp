@@ -10,11 +10,11 @@
 // Information about this assembly is defined by the following attributes.
 // Change them to the values specific to your project.
 
-assembly_title_("virtware");
+assembly_title_("Virtware");
 assembly_description_("");
 assembly_configuration_("");
 assembly_company_("");
-assembly_product_("virtware");
+assembly_product_("Virtware");
 assembly_copyright_("");
 assembly_trademark_("");
 assembly_culture_("");

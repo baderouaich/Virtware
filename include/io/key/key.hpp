@@ -2,13 +2,17 @@
 #include <cstdint>
 #include <unordered_map>
 
-namespace virtware
+namespace Virtware
 {
     class Key final
     {
     public: // Input
         static bool is_key_pressed(const std::uint16_t keycode) noexcept;
-        static bool is_key_released(const std::uint16_t keycode) noexcept;
+        //static bool is_key_released(const std::uint16_t keycode) noexcept;
+        /**
+         * @brief Returns true if a keyboard key is toggled, example Caps Lock on/off.
+         */
+        //static bool is_key_toggled(const std::uint16_t keycode) noexcept;
 
     public: // Output
         static void press(const std::uint16_t keycode) noexcept;

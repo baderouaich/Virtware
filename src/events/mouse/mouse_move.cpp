@@ -1,9 +1,9 @@
-#include "pch.hpp"
+#include "core/core.hpp"
 #include "events/mouse/mouse_move.hpp"
 #include <sstream>
 #include <cstdio>
 #include <stdexcept>
-using namespace virtware;
+using namespace Virtware;
 
 MouseMoveEvent::MouseMoveEvent() :
 	Event(Event::EventType::Mouse),
@@ -26,6 +26,11 @@ MouseMoveEvent::MouseMoveEvent(const vec2i& pos) :
 	Event(Event::EventType::Mouse),
 	x(pos.x), y(pos.y)
 {
+}
+
+vec2i MouseMoveEvent::get_position() const noexcept
+{
+	return vec2i(x, y);
 }
 
 std::int32_t MouseMoveEvent::get_x() const noexcept

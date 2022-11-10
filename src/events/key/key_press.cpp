@@ -1,9 +1,9 @@
-#include "pch.hpp"
+#include "core/core.hpp"
 #include "events/key/key_press.hpp"
 #include "io/key/key.hpp"
 #include <ostream>
 #include <stdexcept>
-using namespace virtware;
+using namespace Virtware;
 
 KeyPressEvent::KeyPressEvent(const std::uint16_t keycode)
  : Event(EventType::Key),
@@ -34,7 +34,7 @@ void KeyPressEvent::from_string(const std::string &str)
     // Prepare buffer to hold key string
     std::string keyname(32, '\000');
     // Scan string format to be parsed
-    if (std::sscanf(str.c_str(), "key press %s", keyname.data()) != 1)
+    if (std::sscanf(str.c_str(), "key press %32s", keyname.data()) != 1)
         throw std::logic_error("Failed to parse KeyPressEvent from '" + str + '\'');
 
     // Validate key name

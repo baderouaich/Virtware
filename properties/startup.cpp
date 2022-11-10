@@ -3,8 +3,8 @@
 //
 // Changes to this file may cause incorrect behavior and will be lost if the code is regenerated.
 
-#include "gui/main_form.hpp"
+#include "../include/gui/main_form.hpp"
 #include <xtd/startup.h>
 
-startup_(virtware::main_form);
+startup_(Virtware::main_form);
 #pragma endregion

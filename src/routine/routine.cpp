@@ -1,6 +1,6 @@
-#include "pch.hpp"
+#include "core/core.hpp"
 #include "routine/routine.hpp"
-using namespace virtware;
+using namespace Virtware;
 
 Routine::Routine()
 {

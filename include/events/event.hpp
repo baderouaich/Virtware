@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace virtware
+namespace Virtware
 {
     class  Event
     {
@@ -16,7 +16,7 @@ namespace virtware
         };
 
     public:
-         explicit Event(const EventType type);
+        explicit Event(const EventType type);
 
     public:
         /**

@@ -3,7 +3,7 @@
 #include "types/vec.hpp"
 #include <cstdint>
 
-namespace virtware 
+namespace Virtware 
 {
 	/**
 	* @brief MouseMoveEvent occurs when mouse is dragged across the 2D screen.
@@ -17,6 +17,7 @@ namespace virtware
 		MouseMoveEvent(const vec2i& pos);
 
 	public:
+		vec2i get_position() const noexcept;
 		std::int32_t get_x() const noexcept;
 		std::int32_t get_y() const noexcept;
 

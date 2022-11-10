@@ -5,7 +5,7 @@
 #include <list>
 #include <atomic>
 
-namespace virtware
+namespace Virtware
 {
     /*
     *   Hardware Events Recorder (Mouse, Keyboard, Joystick...)
@@ -33,6 +33,8 @@ namespace virtware
 
     private:
         void record_loop();
+        void handle_key_events();
+        void handle_mouse_events();
 
     private:
         std::atomic<bool> m_is_recording;

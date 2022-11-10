@@ -2,7 +2,7 @@
 #include "../event.hpp"
 #include <cstdint>
 
-namespace virtware 
+namespace Virtware 
 {
     class KeyPressEvent : public Event
     {
