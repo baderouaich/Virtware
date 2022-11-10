@@ -1,6 +1,6 @@
-#include "pch.hpp"
+#include "core/core.hpp"
 #include "events/time/wait.hpp"
-using namespace virtware;
+using namespace Virtware;
 
 WaitEvent::WaitEvent() : 
 	Event(EventType::Time)
@@ -66,6 +66,11 @@ WaitEvent::WaitEvent(const std::chrono::years& duration)
 {
 }
 
+const std::chrono::system_clock::duration& WaitEvent::get_duration() const noexcept
+{
+    return m_duration;
+}
+
 
 std::string WaitEvent::to_string() const
 {
@@ -99,11 +104,11 @@ void WaitEvent::from_string(const std::string& str)
 {
     // Scan expected format to extract duration count and duration suffix
     std::size_t units{ 0 };
-    char duration_suffix[20]{ '\000' };
-    if (std::sscanf(str.c_str(), "wait %zu%s", &units, duration_suffix) != 2)
+    std::string duration_suffix(20, '\000');
+    if (std::sscanf(str.c_str(), "wait %zu%20s", &units, duration_suffix.data()) != 2)
         throw std::logic_error("Failed to parse WaitEvent from '" + str + '\'');
     // Assign duration suffix
-    m_suffix = std::string(duration_suffix);
+    m_suffix = duration_suffix;
     // Assign duration count according to  duration suffix
     if (m_suffix == MICROSECONDS_PREFIX)
         m_duration = std::chrono::microseconds(units);
