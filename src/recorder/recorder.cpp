@@ -62,10 +62,7 @@ void Recorder::record_loop()
 
     m_is_recording = true;
     while(m_is_recording)
-    {
-        static std::chrono::system_clock::time_point last_event_time = std::chrono::system_clock::now(); // Duration between events, its also an event.
-        //std::chrono::system_clock::time_point current_event_time;
-        
+    {        
         bool key_event_occured = handle_key_events();
         bool mouse_event_occured = handle_mouse_events();
 
@@ -76,18 +73,7 @@ void Recorder::record_loop()
             m_events.push_back(std::make_shared<WaitEvent>(time));
         }
   
-        /*
-        
-            current_event_time = std::chrono::system_clock::now();
-            
-            auto wait_event = current_event_time - last_event_time;
-            if(auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(wait_event);
-                ms.count() > 50)
-                m_events.push_back(std::make_shared<WaitEvent>(ms, "ms"));
-            last_event_time = current_event_time;
-
-                */
-        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        //std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
 }
 
