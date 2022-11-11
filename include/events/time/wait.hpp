@@ -21,7 +21,8 @@ namespace Virtware
         static inline const std::string YEARS_PREFIX = "yr";
 
 	public:
-		WaitEvent();
+        WaitEvent();
+        WaitEvent(const std::string& str);
 		WaitEvent(const std::chrono::system_clock::duration& duration, const std::string& suffix);
 		WaitEvent(const std::size_t units, const std::string& suffix);
         //explicit WaitEvent(const std::chrono::nanoseconds& duration);

@@ -8,6 +8,7 @@ namespace Virtware
     {
     public:
         explicit KeyClickEvent(const std::uint16_t keycode);
+        explicit KeyClickEvent(const std::string& str);
 
         std::uint16_t get_keycode() const noexcept;
 

@@ -7,6 +7,12 @@ WaitEvent::WaitEvent() :
 {
 }
 
+WaitEvent::WaitEvent(const std::string& str) : 
+    Event(EventType::Time)
+{
+    this->from_string(str);
+}
+
 WaitEvent::WaitEvent(const std::chrono::system_clock::duration& duration, const std::string& suffix)
 	:
 	Event(EventType::Time),
@@ -104,11 +110,11 @@ void WaitEvent::from_string(const std::string& str)
 {
     // Scan expected format to extract duration count and duration suffix
     std::size_t units{ 0 };
-    std::string duration_suffix(20, '\000');
-    if (std::sscanf(str.c_str(), "wait %zu%20s", &units, duration_suffix.data()) != 2)
+    char duration_suffix[32]{'\000'};
+    if (std::sscanf(str.c_str(), "wait %zu%32s", &units, duration_suffix) != 2)
         throw std::logic_error("Failed to parse WaitEvent from '" + str + '\'');
     // Assign duration suffix
-    m_suffix = duration_suffix;
+    m_suffix = std::string(duration_suffix);
     // Assign duration count according to  duration suffix
     if (m_suffix == MICROSECONDS_PREFIX)
         m_duration = std::chrono::microseconds(units);

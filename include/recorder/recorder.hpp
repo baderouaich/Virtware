@@ -33,8 +33,8 @@ namespace Virtware
 
     private:
         void record_loop();
-        void handle_key_events();
-        void handle_mouse_events();
+        bool handle_key_events();
+        bool handle_mouse_events();
 
     private:
         std::atomic<bool> m_is_recording;

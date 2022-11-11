@@ -12,6 +12,12 @@ KeyClickEvent::KeyClickEvent(const std::uint16_t keycode)
 
 }
 
+KeyClickEvent::KeyClickEvent(const std::string& str)
+    : Event(EventType::Key)
+{
+    this->from_string(str);
+}
+
 std::uint16_t KeyClickEvent::get_keycode() const noexcept
 {
     return m_keycode;
@@ -32,10 +38,11 @@ std::string KeyClickEvent::to_string() const
 void KeyClickEvent::from_string(const std::string& str)
 {
     // Prepare buffer to hold key string
-    std::string keyname(32, '\000');
+    char keyname[32]{ '\000' };
     // Scan string format to be parsed
-    if (std::sscanf(str.c_str(), "key click %32s", keyname.data()) != 1)
+    if (std::sscanf(str.c_str(), "key click %32s", keyname) != 1)
         throw std::logic_error("Failed to parse KeyClickEvent from '" + str + '\'');
+
 
     // Validate key name
     const auto it = std::find_if(Key::KEYBOARD.begin(), Key::KEYBOARD.end(), [&keyname](const auto& key)
@@ -49,5 +56,5 @@ void KeyClickEvent::from_string(const std::string& str)
         m_keycode = it->first;
     }
     else
-        throw std::logic_error("Failed to parse KeyClickEvent. Invalid key name '" + keyname + "\'.");
+        throw std::logic_error("Failed to parse KeyClickEvent. Invalid key name '" + std::string(keyname) + "\'.");
 }
