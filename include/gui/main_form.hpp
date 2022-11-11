@@ -22,6 +22,8 @@ namespace Virtware {
       std::unique_ptr<xtd::forms::button> m_start_recording_btn;
       std::unique_ptr<xtd::forms::button> m_stop_recording_btn;
       std::unique_ptr<xtd::forms::button> m_play_recording;
+      std::unique_ptr<xtd::forms::button> m_save_recording;
+      std::unique_ptr<xtd::forms::button> m_load_recording;
       std::unique_ptr<xtd::forms::list_box> m_events_lst;
   };
 }
