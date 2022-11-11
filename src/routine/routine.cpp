@@ -13,6 +13,8 @@
 
 #include "events/time/wait.hpp"
 
+#include <fstream>
+
 using namespace Virtware;
 
 Routine::Routine()
@@ -54,6 +56,33 @@ void Routine::add_event(const std::string& event_text)
 
 #undef DETECT_EVENT_STR1
 #undef DETECT_EVENT_STR
+}
+
+void Routine::to_file(const fs::path& filename)
+{
+	if (std::ofstream ofs{ filename })
+	{
+		for (const std::shared_ptr<Event>& event : m_events)
+		{
+			ofs << event->to_string() << '\n';
+		}
+		ofs.close();
+	}
+	else throw std::runtime_error("Could not save routine to file " + filename.string());
+}
+
+void Routine::from_file(const fs::path& filename)
+{
+	if (std::ifstream ifs{ filename })
+	{
+		std::string line;
+		while (std::getline(ifs, line))
+		{
+			this->add_event(line);
+		}
+		ifs.close();
+	}
+	else throw std::runtime_error("Could not read routine from file " + filename.string());
 }
 
 void Routine::add_event(const std::shared_ptr<Event>& event)
