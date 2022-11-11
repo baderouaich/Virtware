@@ -1,0 +1,498 @@
+mouse move 168 146
+wait 0ms
+mouse move 167 151
+wait 240ms
+mouse move 166 155
+wait 2ms
+mouse move 166 164
+wait 6ms
+mouse move 166 167
+wait 3ms
+mouse move 166 176
+wait 5ms
+mouse move 166 179
+wait 5ms
+mouse move 167 194
+wait 5ms
+mouse move 169 205
+wait 6ms
+mouse move 169 211
+wait 2ms
+mouse move 174 223
+wait 5ms
+mouse move 176 227
+wait 3ms
+mouse move 181 240
+wait 6ms
+mouse move 183 247
+wait 2ms
+mouse move 190 258
+wait 5ms
+mouse move 192 264
+wait 1ms
+mouse move 202 279
+wait 10ms
+mouse move 211 289
+wait 7ms
+mouse move 213 293
+wait 2ms
+mouse move 222 303
+wait 7ms
+mouse move 226 307
+wait 2ms
+mouse move 235 314
+wait 5ms
+mouse move 238 318
+wait 4ms
+mouse move 251 327
+wait 5ms
+mouse move 260 333
+wait 7ms
+mouse move 264 336
+wait 1ms
+mouse move 275 342
+wait 7ms
+mouse move 279 345
+wait 2ms
+mouse move 291 350
+wait 6ms
+mouse move 297 352
+wait 3ms
+mouse move 317 360
+wait 6ms
+mouse move 332 363
+wait 7ms
+mouse move 339 364
+wait 2ms
+mouse move 357 369
+wait 7ms
+mouse move 363 371
+wait 2ms
+mouse move 380 374
+wait 6ms
+mouse move 387 376
+wait 3ms
+mouse move 403 378
+wait 5ms
+mouse move 411 381
+wait 4ms
+mouse move 431 383
+wait 5ms
+mouse move 444 385
+wait 6ms
+mouse move 451 385
+wait 2ms
+mouse move 464 384
+wait 6ms
+mouse move 470 384
+wait 3ms
+mouse move 481 383
+wait 5ms
+mouse move 485 382
+wait 3ms
+mouse move 497 381
+wait 6ms
+mouse move 504 379
+wait 8ms
+mouse move 508 379
+wait 1ms
+mouse move 513 379
+wait 7ms
+mouse move 517 379
+wait 2ms
+key press left_windows
+wait 510ms
+key release left_windows
+wait 110ms
+key press p
+wait 988ms
+key release p
+wait 116ms
+key press a
+wait 28ms
+key press i
+key release a
+wait 137ms
+key press n
+wait 60ms
+key release i
+key release n
+wait 195ms
+key press t
+wait 78ms
+key release t
+wait 141ms
+key press enter
+wait 542ms
+key release enter
+wait 86ms
+mouse move 523 387
+wait 1415ms
+mouse move 528 391
+wait 1ms
+mouse move 539 405
+wait 8ms
+mouse move 543 412
+wait 2ms
+mouse move 557 428
+wait 6ms
+mouse move 561 434
+wait 3ms
+mouse move 575 451
+wait 5ms
+mouse move 579 459
+wait 5ms
+mouse move 599 485
+wait 4ms
+mouse move 613 504
+wait 8ms
+mouse move 618 513
+wait 1ms
+mouse move 631 528
+wait 8ms
+mouse move 637 536
+wait 2ms
+mouse move 649 553
+wait 5ms
+mouse move 655 559
+wait 3ms
+mouse move 665 576
+wait 4ms
+mouse move 669 583
+wait 1ms
+mouse move 679 597
+wait 6ms
+mouse move 681 603
+wait 1ms
+mouse move 692 617
+wait 8ms
+mouse move 695 621
+wait 2ms
+mouse move 701 633
+wait 6ms
+mouse move 704 639
+wait 4ms
+mouse move 711 651
+wait 5ms
+mouse move 713 655
+wait 4ms
+mouse move 720 665
+wait 4ms
+mouse move 722 670
+wait 1ms
+mouse move 727 676
+wait 7ms
+mouse move 729 679
+wait 2ms
+mouse move 731 684
+wait 5ms
+mouse move 732 685
+wait 3ms
+mouse move 734 689
+wait 7ms
+mouse move 735 691
+wait 2ms
+mouse move 735 695
+wait 7ms
+mouse move 735 697
+wait 7ms
+mouse move 734 697
+wait 166ms
+mouse move 733 697
+wait 24ms
+mouse move 732 697
+wait 20ms
+mouse move 731 697
+wait 7ms
+mouse move 730 697
+wait 10ms
+mouse move 729 697
+wait 1ms
+mouse move 727 697
+wait 5ms
+mouse move 725 698
+wait 9ms
+mouse move 724 699
+wait 2ms
+mouse move 722 699
+wait 6ms
+mouse move 721 699
+wait 1ms
+mouse move 720 699
+wait 7ms
+mouse move 719 700
+wait 8ms
+mouse move 717 700
+wait 3ms
+mouse move 715 700
+wait 5ms
+mouse move 713 700
+wait 10ms
+mouse move 712 700
+wait 8ms
+mouse move 711 700
+wait 0ms
+mouse move 710 700
+wait 10ms
+mouse move 709 700
+wait 7ms
+mouse move 708 700
+wait 27ms
+mouse move 707 700
+wait 16ms
+mouse move 707 699
+wait 8ms
+mouse move 694 695
+wait 514ms
+mouse move 686 693
+wait 4ms
+mouse move 665 685
+wait 6ms
+mouse move 659 683
+wait 3ms
+mouse move 631 669
+wait 5ms
+mouse move 611 656
+wait 7ms
+mouse move 604 650
+wait 1ms
+mouse move 585 639
+wait 8ms
+mouse move 579 633
+wait 2ms
+mouse move 562 621
+wait 6ms
+mouse move 557 617
+wait 3ms
+mouse move 537 599
+wait 8ms
+mouse move 525 586
+wait 5ms
+mouse move 521 582
+wait 2ms
+mouse move 510 569
+wait 6ms
+mouse move 505 563
+wait 2ms
+mouse move 498 551
+wait 6ms
+mouse move 495 547
+wait 3ms
+mouse move 489 536
+wait 6ms
+mouse move 486 531
+wait 4ms
+mouse move 476 513
+wait 5ms
+mouse move 469 500
+wait 7ms
+mouse move 467 495
+wait 2ms
+mouse move 464 483
+wait 7ms
+mouse move 461 477
+wait 2ms
+mouse move 457 467
+wait 6ms
+mouse move 456 463
+wait 3ms
+mouse move 448 445
+wait 6ms
+mouse move 445 434
+wait 7ms
+mouse move 443 431
+wait 2ms
+mouse move 438 420
+wait 7ms
+mouse move 437 415
+wait 2ms
+mouse move 433 406
+wait 7ms
+mouse move 431 403
+wait 2ms
+mouse move 427 395
+wait 6ms
+mouse move 427 392
+wait 4ms
+mouse move 420 377
+wait 5ms
+mouse move 416 371
+wait 6ms
+mouse move 415 369
+wait 2ms
+mouse move 411 363
+wait 7ms
+mouse move 408 360
+wait 3ms
+mouse move 404 357
+wait 5ms
+mouse move 402 356
+wait 4ms
+mouse move 395 351
+wait 5ms
+mouse move 389 348
+wait 7ms
+mouse move 385 347
+wait 2ms
+mouse move 379 343
+wait 7ms
+mouse move 376 341
+wait 2ms
+mouse move 369 338
+wait 6ms
+mouse move 366 337
+wait 4ms
+mouse move 359 333
+wait 5ms
+mouse move 354 333
+wait 4ms
+mouse move 344 329
+wait 6ms
+mouse move 336 329
+wait 6ms
+mouse move 334 329
+wait 1ms
+mouse move 327 329
+wait 7ms
+mouse move 323 329
+wait 2ms
+mouse move 317 329
+wait 7ms
+mouse move 312 329
+wait 2ms
+mouse move 305 329
+wait 5ms
+mouse move 303 329
+wait 5ms
+mouse move 293 329
+wait 4ms
+mouse move 288 329
+wait 7ms
+mouse move 285 329
+wait 2ms
+mouse move 281 327
+wait 6ms
+mouse move 278 326
+wait 3ms
+mouse move 273 323
+wait 5ms
+mouse move 271 322
+wait 4ms
+mouse move 266 319
+wait 6ms
+mouse move 261 316
+wait 7ms
+mouse move 260 315
+wait 2ms
+mouse move 256 313
+wait 8ms
+mouse move 254 313
+wait 2ms
+mouse move 251 311
+wait 6ms
+mouse move 249 310
+wait 2ms
+mouse move 245 309
+wait 6ms
+mouse move 244 308
+wait 4ms
+mouse move 239 307
+wait 5ms
+mouse move 235 304
+wait 7ms
+mouse move 233 302
+wait 8ms
+mouse move 230 301
+wait 3ms
+mouse move 229 299
+wait 7ms
+mouse move 228 299
+wait 3ms
+mouse move 227 298
+wait 4ms
+mouse move 227 297
+wait 1ms
+mouse move 227 296
+wait 7ms
+mouse move 226 296
+wait 2ms
+mouse move 225 295
+wait 7ms
+mouse move 224 294
+wait 2ms
+mouse move 222 291
+wait 277ms
+mouse move 221 290
+wait 4ms
+mouse move 219 286
+wait 6ms
+mouse move 219 285
+wait 2ms
+mouse move 216 282
+wait 6ms
+mouse move 215 279
+wait 7ms
+mouse move 215 278
+wait 2ms
+mouse move 214 277
+wait 8ms
+mouse move 213 275
+wait 2ms
+mouse move 213 274
+wait 5ms
+mouse move 212 271
+wait 4ms
+mouse move 209 271
+wait 5ms
+mouse move 209 270
+wait 5ms
+mouse move 209 269
+wait 13ms
+mouse move 208 267
+wait 267ms
+mouse move 204 261
+wait 5ms
+mouse move 200 256
+wait 7ms
+mouse move 199 255
+wait 2ms
+mouse move 198 251
+wait 7ms
+mouse move 197 250
+wait 1ms
+mouse move 196 248
+wait 7ms
+mouse move 195 246
+wait 5ms
+mouse move 195 244
+wait 4ms
+mouse move 193 243
+wait 7ms
+mouse move 193 242
+wait 8ms
+mouse move 193 241
+wait 279ms
+mouse move 193 240
+wait 15ms
+mouse move 193 239
+wait 10ms
+mouse move 193 237
+wait 8ms
+mouse move 193 235
+wait 9ms
+mouse move 192 233
+wait 9ms
+mouse move 191 233
+wait 4ms
+mouse move 191 229
+wait 5ms
+mouse move 189 228
+wait 7ms
+mouse move 189 227
+wait 1ms
+mouse move 189 225
+wait 8ms
+mouse move 188 225
+wait 1ms
+mouse move 188 223
+wait 7ms
