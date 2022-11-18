@@ -78,6 +78,9 @@ void Routine::from_file(const fs::path& filename)
 		std::string line;
 		while (std::getline(ifs, line))
 		{
+			// Skip empty lines and comments
+			line = xtd::ustring(line).trim();
+			if (line.empty() or line.starts_with("#") or line.starts_with("//")) continue;
 			this->add_event(line);
 		}
 		ifs.close();
