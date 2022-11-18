@@ -1,5 +1,6 @@
 #include "core/core.hpp"
 #include "events/mouse/mouse_move.hpp"
+#include "utils/convert_utils.hpp"
 #include <sstream>
 #include <cstdio>
 #include <stdexcept>
@@ -52,8 +53,14 @@ std::string MouseMoveEvent::to_string() const
 
 void MouseMoveEvent::from_string(const std::string& str)
 {
-	// Scan expected format to be parsed from string and assign x and y with its correspondent values
-	if (std::sscanf(str.c_str(), "mouse move %d %d", &this->x, &this->y) != 2) // EOF
-		throw std::logic_error("Could not parse MouseMoveEvent from '" + str + '\'');
+	// Parse expected format to extract x and y)
+	const std::regex rgx("mouse move ([0-9]{1,10}) ([0-9]{1,10})"); // e.g: mouse move 100 160
+	std::smatch matches;
+	if (std::regex_search(str, matches, rgx) && matches.size() == 3) // matches[0] gives the whole rgx
+	{
+		this->x = ConvertUtils::to<decltype(this->x)>(matches[1].str());
+		this->y = ConvertUtils::to<decltype(this->y)>(matches[2].str());
+	}
+	else throw std::logic_error("Failed to parse MouseMoveEvent from '" + str + '\'');
 }
 
