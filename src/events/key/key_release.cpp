@@ -37,11 +37,15 @@ std::string KeyReleaseEvent::to_string() const
 
 void KeyReleaseEvent::from_string(const std::string& str)
 {
-    // Prepare buffer to hold key string
-    char keyname[32]{ '\000' };
-    // Scan string format to be parsed
-    if (std::sscanf(str.c_str(), "key release %32s", keyname) != 1)
-        throw std::logic_error("Failed to parse KeyReleaseEvent from '" + str + '\'');
+    // Parse expected format to extract keyname
+    std::string keyname;
+    const std::regex rgx("key release ([a-z]{1,32})"); // e.g: key release a OR key release escape ...
+    std::smatch matches;
+    if (std::regex_search(str, matches, rgx) && matches.size() == 2) // matches[0] gives the whole rgx
+    {
+        keyname = matches[1].str();
+    }
+    else throw std::logic_error("Failed to parse KeyReleaseEvent from '" + str + '\'');
 
     // Validate key name
     const auto it = std::find_if(Key::KEYBOARD.begin(), Key::KEYBOARD.end(), [&keyname](const auto& key)
@@ -55,5 +59,5 @@ void KeyReleaseEvent::from_string(const std::string& str)
         m_keycode = it->first;
     }
     else
-        throw std::logic_error("Failed to parse KeyReleaseEvent. Invalid key name '" + std::string(keyname)+ "\'");
+        throw std::logic_error("Failed to parse KeyReleaseEvent. Invalid key name '" + keyname + '\'');
 }
