@@ -1,4 +1,9 @@
 # TODO List
+
+- [ ] Allow user to set a key to stop recording when its clicked, or a shortcut will be better..
+	i was thinking ESCAPE key but user may want to record that key sometimes, then shortcut makes more sense
+
+
 ### Mouse
 - [x] Mouse move event + unit tests
 > When you move mouse across the screen

@@ -23,6 +23,8 @@ set(HEADERS
   include/io/key/key.hpp
   include/io/mouse/mouse.hpp
   include/types/vec.hpp
+  include/timer/timer.hpp
+  include/utils/convert_utils.hpp
   include/gui/main_form.hpp
 )
 set(SOURCES
