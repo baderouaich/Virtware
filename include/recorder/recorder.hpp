@@ -1,6 +1,7 @@
 #pragma once
 
-#include "../events/event.hpp"
+#include "events/event.hpp"
+#include "timer/timer.hpp"
 #include <thread>
 #include <list>
 #include <atomic>
@@ -32,7 +33,7 @@ namespace Virtware
         const std::list<std::shared_ptr<Event>>& get_events() const noexcept;
 
     private:
-        void record_loop();
+        void recording_loop();
         bool handle_key_events();
         bool handle_mouse_events();
 
@@ -40,5 +41,6 @@ namespace Virtware
         std::atomic<bool> m_is_recording;
         std::unique_ptr<std::thread> m_recording_thread;
         std::list<std::shared_ptr<Event>> m_events;
+        std::unique_ptr<Timer> m_timer;
     }; 
 } 

@@ -12,7 +12,8 @@
 using namespace Virtware;
 
 Recorder::Recorder()
-: m_is_recording(false) 
+: m_is_recording(false),
+  m_timer(new Timer())
 {
     
 }
@@ -25,7 +26,8 @@ void Recorder::start()
 {
     if(m_is_recording) return;
     
-    m_recording_thread.reset(new std::thread(&Recorder::record_loop, this));
+    m_recording_thread.reset(new std::thread(&Recorder::recording_loop, this));
+    m_is_recording = true;
 }
 
 void Recorder::stop()
@@ -39,38 +41,19 @@ void Recorder::stop()
     }
 }
 
-void Recorder::record_loop()
+void Recorder::recording_loop()
 {
-    static struct Timer
-    {
-        void start()
-        {
-            begin = std::chrono::system_clock::now();
-        }
-
-        std::chrono::milliseconds restart()
-        {
-            const auto now = std::chrono::system_clock::now();
-            const auto diff = std::chrono::duration_cast<std::chrono::milliseconds>(now - begin);
-            start();
-            return diff;
-        }
-
-        std::chrono::system_clock::time_point begin;
-    } timer;
-    timer.start();
-
-    m_is_recording = true;
+    m_timer->start();
     while(m_is_recording)
     {        
-        bool key_event_occured = handle_key_events();
-        bool mouse_event_occured = handle_mouse_events();
+        const bool key_event_occured   = handle_key_events();
+        const bool mouse_event_occured = handle_mouse_events();
 
         // Time event, duration between two events
         if (key_event_occured or mouse_event_occured)
         {
-            auto time = timer.restart();
-            m_events.push_back(std::make_shared<WaitEvent>(time));
+            auto idle_time_ns = m_timer->restart<std::chrono::nanoseconds>();
+            m_events.push_back(std::make_shared<WaitEvent>(idle_time_ns));
         }
   
         //std::this_thread::sleep_for(std::chrono::milliseconds(50));
@@ -82,7 +65,7 @@ bool Recorder::handle_key_events()
     bool event_occured = false;
     enum class KeyState : std::uint8_t 
     {
-        Dormant, // Key is in idle state, never pressed pressed or released yet
+        Dormant, // Key is in idle state, never pressed or released yet
         Pressed, // Key is pressed, used also to detect key released if key state was pressed and not in this frame
     };
     static std::map<std::uint16_t, KeyState> keyboard_state;
@@ -97,13 +80,13 @@ bool Recorder::handle_key_events()
     for(const auto& [keycode, keyname] : Key::KEYBOARD)
     {
 #pragma region handle key pressed event
-        if(Key::is_key_pressed(keycode))
+        if(Key::is_pressed(keycode))
         {
             // was key already pressed ?
             if (keyboard_state[keycode] == KeyState::Pressed)
             {
                 // do nothing
-                xtd::diagnostics::debug::write_line("Key {} was already pressed, ignoring", keyname);
+                //xtd::diagnostics::debug::write_line("Key {} was already pressed, ignoring", keyname);
                 event_occured = false;
             }
             else // if (keyboard_state[keycode] == KeyState::Dormant)
@@ -112,10 +95,9 @@ bool Recorder::handle_key_events()
                 keyboard_state[keycode] = KeyState::Pressed;
                 xtd::diagnostics::debug::write_line("Key {} pressed", keyname);
                 event_occured = true;
-
             }
         }
-#pragma endregion 
+#pragma endregion
 #pragma region handle key released event
         else // if it is not pressed now, lets see if it was pressed previously so we can mark it as released
         {
