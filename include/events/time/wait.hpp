@@ -9,23 +9,26 @@ namespace Virtware
 	class WaitEvent : public Event
 	{
     public:
-        //static inline const std::string NANOSECONDS_PREFIX = "nc";
-        static inline const std::string MICROSECONDS_PREFIX = "mc";
-        static inline const std::string MILLISECONDS_PREFIX = "ms";
-        static inline const std::string SECONDS_PREFIX = "s";
-        static inline const std::string MINUTES_PREFIX = "min";
-        static inline const std::string HOURS_PREFIX = "hr";
-        static inline const std::string DAYS_PREFIX = "d";
-        static inline const std::string WEEKS_PREFIX = "w";
-        static inline const std::string MONTHS_PREFIX = "mon";
-        static inline const std::string YEARS_PREFIX = "yr";
+        using duration_t = std::chrono::high_resolution_clock::duration;
+
+    public:
+        static inline constexpr const char NANOSECONDS_SUFFIX  [] = "ns";
+        static inline constexpr const char MICROSECONDS_SUFFIX [] = "mc";
+        static inline constexpr const char MILLISECONDS_SUFFIX [] = "ms";
+        static inline constexpr const char SECONDS_SUFFIX      [] = "s";
+        static inline constexpr const char MINUTES_SUFFIX      [] = "min";
+        static inline constexpr const char HOURS_SUFFIX        [] = "hr";
+        static inline constexpr const char DAYS_SUFFIX         [] = "d";
+        static inline constexpr const char WEEKS_SUFFIX        [] = "w";
+        static inline constexpr const char MONTHS_SUFFIX       [] = "mon";
+        static inline constexpr const char YEARS_SUFFIX        [] = "yr";
 
 	public:
         WaitEvent();
         WaitEvent(const std::string& str);
-		WaitEvent(const std::chrono::system_clock::duration& duration, const std::string& suffix);
-		WaitEvent(const std::size_t units, const std::string& suffix);
-        //explicit WaitEvent(const std::chrono::nanoseconds& duration);
+		WaitEvent(const duration_t& duration, const std::string& suffix);
+		WaitEvent(const std::int64_t units, const std::string& suffix);
+        explicit WaitEvent(const std::chrono::nanoseconds& duration);
         explicit WaitEvent(const std::chrono::microseconds& duration);
 		explicit WaitEvent(const std::chrono::milliseconds& duration);
 		explicit WaitEvent(const std::chrono::seconds& duration);
@@ -35,9 +38,40 @@ namespace Virtware
 		explicit WaitEvent(const std::chrono::weeks& duration);
 		explicit WaitEvent(const std::chrono::months& duration);
 		explicit WaitEvent(const std::chrono::years& duration);
-
+        
     public:
-        const std::chrono::system_clock::duration& get_duration() const noexcept;
+        const duration_t& get_duration() const noexcept;
+
+#if 0
+        std::shared_ptr<WaitEvent> get() {
+            std::chrono::system_clock::duration dur = m_duration;
+            const auto count = dur.count();
+
+            
+            // Simplify 1000ms to 1s ...
+            if (count >= 1000)
+            {
+               
+                if (m_suffix == MICROSECONDS_SUFFIX)
+                {
+                    return std::make_shared<WaitEvent>(std::chrono::duration_cast<std::chrono::milliseconds>(dur));
+                }
+                else if (m_suffix == MILLISECONDS_SUFFIX)
+                {
+                    return std::make_shared<WaitEvent>(std::chrono::duration_cast<std::chrono::seconds>(dur));
+                }
+                else if (m_suffix == SECONDS_SUFFIX)
+                {
+                    return std::make_shared<WaitEvent>(std::chrono::duration_cast<std::chrono::minutes>(dur));
+                }
+            }
+            else
+            {
+                return std::make_shared<WaitEvent>(dur);
+            }
+            
+        }
+#endif
 
     public:
         /**
@@ -57,7 +91,7 @@ namespace Virtware
         void from_string(const std::string& str) override;
 
 	private:
-		std::chrono::system_clock::duration m_duration; /**< Duration to wait for */
+        duration_t m_duration; /**< Duration to wait for (we need a high resolution clock for nanoseconds) */
 		std::string m_suffix; /**< Suffix string after duration number, example: 300ms, 1s, 10hr ... */
 	};
 }
