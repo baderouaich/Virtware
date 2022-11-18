@@ -39,7 +39,7 @@ void KeyReleaseEvent::from_string(const std::string& str)
 {
     // Parse expected format to extract keyname
     std::string keyname;
-    const std::regex rgx("key release ([a-z]{1,32})"); // e.g: key release a OR key release escape ...
+    const std::regex rgx("key release ([a-z0-9_]{1,32})"); // e.g: key release a OR key release left_windows or key release f12 ...
     std::smatch matches;
     if (std::regex_search(str, matches, rgx) && matches.size() == 2) // matches[0] gives the whole rgx
     {

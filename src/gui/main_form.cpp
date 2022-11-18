@@ -82,7 +82,7 @@ main_form::main_form() :
 		xtd::ustring filename;
 		if (xtd::forms::save_file_box::show(filename,
 			"Save routine to a file...",
-			xtd::environment::get_folder_path(xtd::environment::special_folder::desktop),
+			xtd::environment::get_folder_path(xtd::environment::special_folder::desktop) + "/Virtware",
 			"*.vtw") == xtd::forms::dialog_result::ok)
 		{
 			routine->to_file((std::string)filename);
