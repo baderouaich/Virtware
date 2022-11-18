@@ -1,0 +1,26 @@
+wait 2s
+key click left_windows
+wait 1s
+key click c
+key click h
+key click r
+key click o
+key click m
+key click e
+wait 1s
+key click enter
+wait 5s
+key click h
+key click e
+key click l
+key click l
+key click o
+key click spacebar
+key click w
+key click o
+key click r
+key click l
+key click d
+key click oem8
+wait 1s
+key click enter
