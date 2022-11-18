@@ -7,7 +7,7 @@ namespace Virtware
     class Key final
     {
     public: // Input
-        static bool is_key_pressed(const std::uint16_t keycode) noexcept;
+        static bool is_pressed(const std::uint16_t keycode) noexcept;
         //static bool is_key_released(const std::uint16_t keycode) noexcept;
         /**
          * @brief Returns true if a keyboard key is toggled, example Caps Lock on/off.
@@ -26,8 +26,9 @@ namespace Virtware
          */
         inline static const std::unordered_map<std::uint16_t, std::string> KEYBOARD =
         {
+            
             // @brief The BACKSPACE key.
-            {8, "backspace"},
+            {VK_BACK, "backspace"},
             /// @brief The TAB key.
             {9, "tab"},
             /// @brief The CLEAR key.
@@ -39,7 +40,7 @@ namespace Virtware
             /// @brief The CapsLock key.
             {20, "caps_lock"},
             /// @brief The ESC (ESCAPE) key.
-            {27, "escape"},
+            {VK_ESCAPE, "escape"},
             /// @brief The SPACEBAR key.
             {32, "spacebar"},
             /// @brief The PAGE UP key.

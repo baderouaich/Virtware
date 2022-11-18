@@ -2,7 +2,7 @@
 #include "io/key/key.hpp"
 using namespace Virtware;
 
-bool Key::is_key_pressed(const std::uint16_t keycode) noexcept
+bool Key::is_pressed(const std::uint16_t keycode) noexcept
 {
 /*
     const ::SHORT keystate = ::GetKeyState(keycode);
