@@ -67,14 +67,14 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 message(STATUS "Virtware sources: ${SOURCES}")
 target_type(GUI_APPLICATION)
 
-# Warnings as errors (helps maintaining strict C++ guidelines)
+# Warnings as errors (helps maintaining strict C++ guidelines), /MP Multiple cores build...
 target_compile_options(${PROJECT_NAME} PRIVATE
-  $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
+  $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX /MP>
   $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic -Werror>
 )
 
 # PCH
-target_precompile_headers(${PROJECT_NAME} PRIVATE ${HEADERS})
+#target_precompile_headers(${PROJECT_NAME} PRIVATE ${HEADERS})
 
 # Install
 install_component()
